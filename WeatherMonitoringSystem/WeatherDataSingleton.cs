@@ -1,9 +1,9 @@
-namespace WeatherMonitoringSystem.WeatherDataSingleton
+namespace WeatherMonitoringSystem
 {
-    public class Singleton<T> where T : new ()
+    public class WeatherDataSingleton<T> where T : new ()
     {
         private static T? _instance;
-        public Singleton()
+        public WeatherDataSingleton()
         {
 
         }
@@ -13,6 +13,7 @@ namespace WeatherMonitoringSystem.WeatherDataSingleton
             {
                 return _instance;
             }
+            
             _instance = new();
             return _instance;
         }
