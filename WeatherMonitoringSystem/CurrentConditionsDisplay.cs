@@ -1,6 +1,6 @@
 namespace WeatherMonitoringSystem
 {
-    public abstract class CurrentConditionsDisplay<T> : IDisplayInterface<T>
+    public abstract class CurrentConditionsDisplay<T> : IDisplayInterface<string>
     {
         protected IDisplayInterface<T> _idisplayInterface;
         protected string addInfo;
@@ -9,12 +9,12 @@ namespace WeatherMonitoringSystem
             _idisplayInterface = idisplayInterface;
             addInfo = "";
         }
-        public virtual T Display()
+        public virtual string Display()
         {
             T currantData = _idisplayInterface.Display();
             string adddate = $"{DateTime.Now}";
 
-            return (T)adddate;
+            return adddate;
         }
     }
 }

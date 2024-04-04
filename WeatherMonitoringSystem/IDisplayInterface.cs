@@ -4,3 +4,5 @@ namespace WeatherMonitoringSystem
     {
         public T Display();
     }
+ 
+}
