@@ -1,8 +1,8 @@
 namespace WeatherMonitoringSystem
 {
-    public interface IDisplayInterface<T>
+    public interface IDisplayInterface
     {
-        public T Display();
+        public void Display();
     }
  
 }

@@ -1,14 +1,14 @@
 namespace WeatherMonitoringSystem
 {
-    public class StaticsDisplayObserver<T> : IDisplayInterface<string>
+    public class StaticsDisplayObserver<T> : IDisplayInterface
     {
-       private IDisplayInterface<T>? _idisplayInterface;
+       private IDisplayInterface? _idisplayInterface;
         private List<float> temperatures = new List<float>();
-       public StaticsDisplayObserver(IDisplayInterface<T> idisplayInterface)
+       public StaticsDisplayObserver(IDisplayInterface idisplayInterface)
        {
            _idisplayInterface = idisplayInterface;
        }
-       public virtual string Display()
+       public virtual void Display()
        {
             float aveTemp = 0;
             float maxTemp = 0;
@@ -22,7 +22,7 @@ namespace WeatherMonitoringSystem
             Console.WriteLine($"Average temperature: {aveTemp}");
             Console.WriteLine($"Max temperature: {maxTemp}");
             Console.WriteLine($"Min temperature: {minTemp}");
-            return "";
+            //return "";
        }
 
     }

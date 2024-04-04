@@ -2,20 +2,63 @@ namespace WeatherMonitoringSystem
 {
     public class WeatherDataSingleton<T> where T : new ()
     {
-        private static T? _instance;
+         private List<IDisplayInterface> WeatherDataObservers = new();
+        private T? _Value;
+       
+        public T? _Value1
+        {
+            get
+            {
+                return _Value;
+            }
+            set
+            {
+                _Value = value;
+                NotifyObservers();
+            }
+        } 
+       
         public WeatherDataSingleton()
         {
 
         }
-        public T GetInstance()
+        public void AddObserver(IDisplayInterface observer)
         {
-            if(_instance != null)
+            if(!WeatherDataObservers.Contains(observer))
             {
-                return _instance;
+                WeatherDataObservers.Add(observer);
             }
-            
-            _instance = new();
-            return _instance;
         }
+        public void RemoveObserver(IDisplayInterface observer)
+        {
+            if(WeatherDataObservers.Contains(observer))
+            {
+                WeatherDataObservers.Remove(observer);
+            }
+        }
+        public void NotifyObservers()
+        {
+            foreach (var observer in WeatherDataObservers)
+            {
+                observer.Display();
+            }
+        }
+
+
+
+
+
+
+
+        // public T GetInstance()
+        // {
+        //     if(_instance != null)
+        //     {
+        //         return _instance;
+        //     }
+            
+        //     _instance = new();
+        //     return _instance;
+        // }
     }
 }
