@@ -2,7 +2,7 @@ namespace WeatherMonitoringSystem
 {
     public interface IDisplayInterface
     {
-        public void Display();
+        public T Display();
     }
  
 }
