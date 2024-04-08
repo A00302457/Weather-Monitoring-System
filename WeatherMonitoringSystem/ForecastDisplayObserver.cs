@@ -1,20 +1,22 @@
+// 
 namespace WeatherMonitoringSystem
 {
-    public class ForecastDisplayObserver<T> : IDisplayInterface
+    public class ForecastDisplayObserver<T> : IDisplayInterface<string>
     {
-       // private WeatherDataSingleton<T> _weatherDataSingleton;
-        private IDisplayInterface? _idisplayInterface;
-        public ForecastDisplayObserver(IDisplayInterface idisplayInterface)
+        protected IDisplayInterface<T> _idisplayInterface;
+        protected string addInfo;
+        public ForecastDisplayObserver(IDisplayInterface<T> idisplayInterface)
         {
             _idisplayInterface = idisplayInterface;
+            addInfo = "";
         }
-        public virtual void Display()
+        public virtual string Display()
         {
-            Random random = new Random();
-            string[] forecasts = new string[] { "Sunny", "Rainy", "Cloudy", "Snowy","Windy","Foggy","Hazy","Thunderstorm" };
-            string forecast = forecasts[random.Next(0, forecasts.Length)];
-            Console.WriteLine($"Forecast: {forecast}");
+            string? currantData = _idisplayInterface.ToString();
+            string adddate = $"{DateTime.Now}";
+            // Console.WriteLine($"Forecast: {currantData} {addInfo}");
+            // return adddate;
+            return currantData +"  "+ adddate;
         }
-
     }
 }

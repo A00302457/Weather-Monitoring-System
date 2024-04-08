@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherMonitoringSystem", "WeatherMonitoringSystem\WeatherMonitoringSystem.csproj", "{62AA183A-0153-4A6A-836A-ACFD1CB90DDC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherSystemConsole", "WeatherSystemConsole\WeatherSystemConsole.csproj", "{AAC20ADD-9278-4D38-88A1-76D968E30CEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{62AA183A-0153-4A6A-836A-ACFD1CB90DDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62AA183A-0153-4A6A-836A-ACFD1CB90DDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62AA183A-0153-4A6A-836A-ACFD1CB90DDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC20ADD-9278-4D38-88A1-76D968E30CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC20ADD-9278-4D38-88A1-76D968E30CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC20ADD-9278-4D38-88A1-76D968E30CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC20ADD-9278-4D38-88A1-76D968E30CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

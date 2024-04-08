@@ -2,7 +2,7 @@ namespace WeatherMonitoringSystem
 {
     public class WeatherStationFactory
     {
-       public IDisplayInterface CreateWeatherStation(string type, WeatherDataSingleton<string> weatherDataSingleton)
+       public IDisplayInterface<T> CreateWeatherStation(string type, WeatherDataSingleton<string> weatherDataSingleton)
         {
             IDisplayInterface? weatherStation = null;
             switch (type)
@@ -24,3 +24,5 @@ namespace WeatherMonitoringSystem
         }
     }
 }
+
+      

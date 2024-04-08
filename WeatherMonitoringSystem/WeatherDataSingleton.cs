@@ -2,8 +2,9 @@ namespace WeatherMonitoringSystem
 {
     public class WeatherDataSingleton<T> where T : new ()
     {
-         private List<IDisplayInterface> WeatherDataObservers = new();
-        private T? _Value;
+        private static WeatherDataSingleton<T>? instance;
+         private List<IDisplayInterface<T>> WeatherDataObservers = new();
+        private static T? _Value;
        
         public T? _Value1
         {
@@ -18,18 +19,23 @@ namespace WeatherMonitoringSystem
             }
         } 
        
-        public WeatherDataSingleton()
+        public static WeatherDataSingleton<T> GetInstance()
         {
-
+           if (instance == null)
+            {
+                instance = new WeatherDataSingleton<T>();
+            }
+            return instance;
         }
-        public void AddObserver(IDisplayInterface observer)
+  
+        public void AddObserver(IDisplayInterface<T> observer)
         {
             if(!WeatherDataObservers.Contains(observer))
             {
                 WeatherDataObservers.Add(observer);
             }
         }
-        public void RemoveObserver(IDisplayInterface observer)
+        public void RemoveObserver(IDisplayInterface<T> observer)
         {
             if(WeatherDataObservers.Contains(observer))
             {
@@ -44,15 +50,9 @@ namespace WeatherMonitoringSystem
             }
         }
 
-
-
-
-
-
-
         // public T GetInstance()
         // {
-        //     if(_instance != null)
+        //     if(_Value != null)
         //     {
         //         return _instance;
         //     }

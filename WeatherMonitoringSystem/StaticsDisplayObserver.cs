@@ -1,14 +1,17 @@
 namespace WeatherMonitoringSystem
 {
-    public class StaticsDisplayObserver<T> : IDisplayInterface
+    public class StaticsDisplayObserver<T> : IDisplayInterface<string>
     {
-       private IDisplayInterface? _idisplayInterface;
+     
+      
+       protected IDisplayInterface<T> _idisplayInterface;
         private List<float> temperatures = new List<float>();
-       public StaticsDisplayObserver(IDisplayInterface idisplayInterface)
+
+       public StaticsDisplayObserver(IDisplayInterface<T> idisplayInterface)
        {
-           _idisplayInterface = idisplayInterface;
+              _idisplayInterface = idisplayInterface;
        }
-       public virtual void Display()
+       public virtual string Display()
        {
             float aveTemp = 0;
             float maxTemp = 0;
@@ -19,10 +22,11 @@ namespace WeatherMonitoringSystem
                 maxTemp = temperatures.Max();
                 minTemp = temperatures.Min();
             }
-            Console.WriteLine($"Average temperature: {aveTemp}");
-            Console.WriteLine($"Max temperature: {maxTemp}");
-            Console.WriteLine($"Min temperature: {minTemp}");
+            // Console.WriteLine($"Average temperature: {aveTemp}");
+            // Console.WriteLine($"Max temperature: {maxTemp}");
+            // Console.WriteLine($"Min temperature: {minTemp}");
             //return "";
+            return aveTemp + " " + maxTemp + " " + minTemp;
        }
 
     }

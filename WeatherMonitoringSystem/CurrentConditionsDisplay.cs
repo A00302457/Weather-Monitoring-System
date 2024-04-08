@@ -1,24 +1,24 @@
 namespace WeatherMonitoringSystem
 {
-    public abstract class CurrentConditionsDisplay<T> : IDisplayInterface
+    public class CurrentConditionsDisplay<T> : IDisplayInterface<string>
     {
-        protected IDisplayInterface _idisplayInterface;
+        protected IDisplayInterface<T> _idisplayInterface;
         //protected WeatherDataSingleton<T> _weatherDataSingleton;
         
         protected string addInfo;
-        public CurrentConditionsDisplay(IDisplayInterface idisplayInterface)
+        public CurrentConditionsDisplay(IDisplayInterface<T> idisplayInterface)
         {
             _idisplayInterface = idisplayInterface;
             addInfo = "";
         }
-        public virtual void Display()
+        public virtual string Display()
         {
-            //T currantData = _idisplayInterface;
+            //T? currantData = _idisplayInterface;
             string? currantData = _idisplayInterface.ToString();
             string adddate = $"{DateTime.Now}";
-            Console.WriteLine($"Current conditions: {currantData} {addInfo}");
+            // Console.WriteLine($"Current conditions: {currantData} {addInfo}");
 
-            //return adddate;
+            return currantData +"  "+ adddate;
         }
     }
 }
