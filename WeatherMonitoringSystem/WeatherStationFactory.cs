@@ -1,27 +1,34 @@
 namespace WeatherMonitoringSystem
 {
+
+
+    /// <summary>
+    /// This class is a factory that creates displays
+    /// </summary>
     public class WeatherStationFactory
     {
-       public IDisplayInterface<T> CreateWeatherStation(string type, WeatherDataSingleton<string> weatherDataSingleton)
+
+        /// <summary>
+        /// This method creates a display
+        /// </summary>
+        /// <param name="displayType"></param>
+        /// <param name="weatherData"></param>
+        /// <returns></returns>
+       public static IDisplayInterface<float> CreateDisplay(string displayType, WeatherDataSingleton<float> weatherData)
         {
-            IDisplayInterface? weatherStation = null;
-            switch (type)
+            switch (displayType)
             {
-                case "CurrentConditionsDisplay":
-                    weatherStation = new CurrentConditionsDisplay(weatherDataSingleton);
-                    break;
-                case "StatisticsDisplay":
-                    weatherStation = new StatisticsDisplay(weatherDataSingleton);
-                    break;
-                case "ForecastDisplay":
-                    weatherStation = new ForecastDisplay(weatherDataSingleton);
-                    break;
-                default:
-                    throw new ArgumentException("Invalid weather station type");
+                case "current":
+                    return new CurrentConditionsDisplay(weatherData);
+                 case "forecast":
+                     return new ForecastDisplayObserver<float>(weatherData);
+                 case "statics":
+                    return new StaticsDisplayObserver(weatherData);
+                 default:
+                    return new CurrentConditionsDisplay(weatherData);
             }
-            return weatherStation;
-            
         }
+
     }
 }
 
