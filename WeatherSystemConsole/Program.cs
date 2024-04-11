@@ -11,6 +11,7 @@ Console.WriteLine("Please enter the type of weather data you would like to displ
 var weatherData1 = Console.ReadLine();
 WeatherDataSingleton<float>.GetInstance()._Value1 = 80f;
 var weatherDataFactory = WeatherStationFactory.CreateDisplay(weatherData1 ?? "current", new WeatherDataSingleton<float>());
+weatherData.AddObserver(weatherDataFactory);
 Console.WriteLine(weatherDataFactory.Display());
 
 //var weatherData1 = new WeatherDataSingleton<float>.GetInstance();
